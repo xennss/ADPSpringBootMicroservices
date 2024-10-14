@@ -1,19 +1,23 @@
 package com.example.ADPProject.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID
     private Long id;
     private String name;
     private String email;
     private String password; // New field for password
 
-    // Default constructor
-    public Customer(Long id, String name, String email, String password) {
-        this.id = id;
+    public Customer() {
+    }
+
+    public Customer(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
