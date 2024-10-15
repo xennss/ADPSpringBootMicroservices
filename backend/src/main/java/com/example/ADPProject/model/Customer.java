@@ -4,12 +4,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+
 
 @Entity
+@Table(name="CUSTOMERS")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID
     private Long id;
+    @Column(name="CUSTOMER_NAME")
     private String name;
     private String email;
     private String password; // New field for password
